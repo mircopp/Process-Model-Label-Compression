@@ -1,0 +1,297 @@
+Loading process data
+Loading model
+Loaded model from disk
+Original sentence: the goods receipt triggers the process <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 7 words.
+Compressed sentence (predicted): the goods receipt triggers the process <EOS>
+
+
+Original sentence: the goods are delivered by the vendor and arrive in the warehouse <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 13 words.
+Compressed sentence (predicted): the goods are delivered by the vendor <EOS>
+
+
+Original sentence: the warehouse clerks then check whether the goods have actually been ordered <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 13 words.
+Compressed sentence (predicted): the warehouse clerks check been <EOS>
+
+
+Original sentence: if goods that have not been ordered are delivered the warehouse clerk refuses to accept the goods <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 18 words.
+Compressed sentence (predicted): clerk refuses to accept the goods <EOS>
+
+
+Original sentence: if on the other hand there is an order the warehouse clerk checks whether the delivery quantity corresponds to the information on the delivery note <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 26 words.
+Compressed sentence (predicted): checks the <EOS>
+
+
+Original sentence: if goods are missing the warehouse clerk enters the missing quantity in the delivery note and in the supply chain management system <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 23 words.
+Compressed sentence (predicted): the warehouse clerk enters the missing quantity <EOS>
+
+
+Original sentence: the incoming goods department then informs the supplier who in turn issues a new delivery order and delivers the goods at a later date <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 25 words.
+Compressed sentence (predicted): the goods department informs the supplier issues a order <EOS>
+
+
+Original sentence: all incoming goods are checked by warehousemen for their storability because the goods could have been put together unfavourably <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 20 words.
+Compressed sentence (predicted): all incoming goods are checked by warehousemen storability <EOS>
+
+
+Original sentence: if the latter is the case the goods must be repacked in order to make them fit for storage <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 20 words.
+Compressed sentence (predicted): the goods must be repacked <EOS>
+
+
+Original sentence: containers pallets and crates are available for this purpose <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 10 words.
+Compressed sentence (predicted): containers pallets crates are available for this purpose <EOS>
+
+
+Original sentence: boxes are usually stacked on pallets which in turn are stored in stackable containers <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 15 words.
+Compressed sentence (predicted): boxes are usually stacked on pallets <EOS>
+
+
+Original sentence: if the goods can be stored the system checks whether they have a best - before date <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 18 words.
+Compressed sentence (predicted): system checks they have a date <EOS>
+
+
+Original sentence: if so the best - before date must be checked <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 11 words.
+Compressed sentence (predicted): must <EOS>
+
+
+Original sentence: if it lies within the specified tolerance range the shelf life expiration date is entered <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 16 words.
+Compressed sentence (predicted): the shelf life expiration date is entered <EOS>
+
+
+Original sentence: otherwise the goods are sorted out and this is also noted as a shortfall on the delivery note <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 19 words.
+Compressed sentence (predicted): the goods are sorted out <EOS>
+
+
+Original sentence: the supplier is again informed and therefore has to deliver the missing goods again <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 15 words.
+Compressed sentence (predicted): the supplier is informed to deliver the goods <EOS>
+
+
+Original sentence: after all checks have been completed the goods can be moved to the various storage rooms whereby the individual storage locations are noted in the system <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 27 words.
+Compressed sentence (predicted): the goods can be moved to the various storage rooms <EOS>
+
+
+Original sentence: goods to be stored in a cool place are stored in the cold rooms provided for this purpose <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 19 words.
+Compressed sentence (predicted): goods to be stored in a cool place are stored <EOS>
+
+
+Original sentence: when an invoice arrives it is checked whether it is available electronically or in writing <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 16 words.
+Compressed sentence (predicted): an invoice arrives <EOS>
+
+
+Original sentence: an electronic invoice is transferred directly into the system whereas a written invoice has to be entered first <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 19 words.
+Compressed sentence (predicted): an electronic invoice is transferred directly into the system <EOS>
+
+
+Original sentence: after entry the open items must be posted with the blocking indicator <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 13 words.
+Compressed sentence (predicted): the open items must be posted with the blocking indicator <EOS>
+
+
+Original sentence: then the calculation of the input tax deduction takes place <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 11 words.
+Compressed sentence (predicted): then the calculation of the input tax deduction takes place <EOS>
+
+
+Original sentence: now the check is carried out according to the type of incoming payment <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 14 words.
+Compressed sentence (predicted): the check is carried out <EOS>
+
+
+Original sentence: the payment can be made only after invoice examination unless one is immediate payer <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 15 words.
+Compressed sentence (predicted): the payment can be made only after invoice examination <EOS>
+
+
+Original sentence: here the invoice is to be released already before <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 10 words.
+Compressed sentence (predicted): the invoice is to be released <EOS>
+
+
+Original sentence: there is no invoice verification for drop shipments <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 9 words.
+Compressed sentence (predicted): there is no invoice verification for drop shipments <EOS>
+
+
+Original sentence: the first step is to sort the documents and then assign them to a delivery note <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 17 words.
+Compressed sentence (predicted): the first step is to sort the documents to <EOS>
+
+
+Original sentence: if no delivery note is available a transaction must be assigned manually <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 13 words.
+Compressed sentence (predicted): a transaction must be assigned manually <EOS>
+
+
+Original sentence: you must now check whether there are any differences between the delivery note and the invoice <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 17 words.
+Compressed sentence (predicted): you must check there are any differences <EOS>
+
+
+Original sentence: if the deviation is outside the tolerance range a deviation check is carried out <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 15 words.
+Compressed sentence (predicted): deviation check is carried out <EOS>
+
+
+Original sentence: now it must be checked whether a credit - side postprocessing is necessary and if necessary this must be carried out <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 22 words.
+Compressed sentence (predicted): postprocessing is necessary <EOS>
+
+
+Original sentence: now the invoice is archived and it is checked whether differences are to be posted and whether there was an immediate payment <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 23 words.
+Compressed sentence (predicted): the invoice is archived differences are <EOS>
+
+
+Original sentence: if differences are to be posted the system branches to the goods valuation process <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 15 words.
+Compressed sentence (predicted): the system branches to the goods valuation process <EOS>
+
+
+Original sentence: if no immediate payment has been made the block indicators for the open items are removed and the invoice is released for payment and the outgoing payment posting process is called <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 32 words.
+Compressed sentence (predicted): the block indicators for the open items are removed <EOS>
+
+
+Original sentence: as soon as we receive a customer order a sales employee checks whether the customer has already been entered in the customer database <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 24 words.
+Compressed sentence (predicted): a customer customer been entered <EOS>
+
+
+Original sentence: as soon as we receive a customer order a sales employee checks whether the customer has already been entered in the customer database <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 24 words.
+Compressed sentence (predicted): a customer customer been entered <EOS>
+
+
+Original sentence: if this is not the case the customer data is newly created <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 13 words.
+Compressed sentence (predicted): the customer data is created <EOS>
+
+
+Original sentence: once the data has been entered we create an order confirmation in the merchandise management system and send it out <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 21 words.
+Compressed sentence (predicted): we create an order confirmation in the <EOS>
+
+
+Original sentence: once the order confirmation has been created and sent the ordered chocolate bars are removed from storage <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 18 words.
+Compressed sentence (predicted): chocolate bars are removed from storage <EOS>
+
+
+Original sentence: following the outsourcing a final quality control takes place <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 10 words.
+Compressed sentence (predicted): a quality control takes place <EOS>
+
+
+Original sentence: if we detect any defects in the packaging or the chocolate the inferior bars are disposed of and then the missing quantity of chocolate bars is removed again <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 29 words.
+Compressed sentence (predicted): inferior bars are disposed of <EOS>
+
+
+Original sentence: if the quality is perfect the bars are packed in cartons <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 12 words.
+Compressed sentence (predicted): the bars are packed in cartons <EOS>
+
+
+Original sentence: after the goods have been packed the merchandise management system checks whether the customer is the person collecting the goods himself <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 22 words.
+Compressed sentence (predicted): checks the customer is the person collecting <EOS>
+
+
+Original sentence: if so we will either provide him with a box pallet or a wooden pallet <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 16 words.
+Compressed sentence (predicted): we will provide <EOS>
+
+
+Original sentence: it should be noted that wooden pallets are only awarded to regular customers <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 14 words.
+Compressed sentence (predicted): wooden pallets are awarded to regular customers <EOS>
+
+
+Original sentence: if on the other hand the customer does not collect the pallets himself the cartons are always provided in a lattice box <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 23 words.
+Compressed sentence (predicted): the cartons are provided <EOS>
+
+
+Original sentence: the transport is then arranged in the merchandise management system <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 11 words.
+Compressed sentence (predicted): the transport is arranged in the merchandise management system <EOS>
+
+
+Original sentence: the goods are then loaded and transported to the customer or taken away by the customer <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 17 words.
+Compressed sentence (predicted): the goods are loaded customer <EOS>
+
+
+Original sentence: the last step is the booking in our merchandise management system <EOS>
+Compressed sentence (Ground Truth): <EOS>
+Longest sequence is 12 words.
+Compressed sentence (predicted): the last step is the booking in our system <EOS>
+
+

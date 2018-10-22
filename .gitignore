@@ -1,0 +1,7 @@
+.idea/*
+Ressources/* 
+ve/*
+matrizes/*
+__pycache__/*
+.ipynb_checkpoints/*
+model_binaries/*

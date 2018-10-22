@@ -1,0 +1,10 @@
+progressbar2
+joblib
+gensim
+numpy
+sklearn
+keras
+tensorflow-gpu
+h5py
+nltk
+pandas

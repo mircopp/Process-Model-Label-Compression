@@ -1,0 +1,9 @@
+flask
+protobuf==3.3.0
+autograd==1.1.13
+mock
+asciitree
+numpy
+scipy
+jupyter
+syntaxnet-with-tensorflow
