@@ -7,6 +7,7 @@ from compression.sentence import SentenceCompressor
 from preprocess import sentences_2D_to_3D, get_X_y
 
 if __name__ == '__main__':
+    model = SentenceCompressor()
     try:
         X = load_preprocessed_data(name='preprocessed_X.google')
         y = load_preprocessed_data(name='preprocessed_y.google')
@@ -44,7 +45,6 @@ if __name__ == '__main__':
     X_train, X_val, X_test, y_train, y_val, y_test = X[2000:], X[1000:2000], X[:1000], y[2000:], y[1000:2000], y[:1000]
 
     print('Model training')
-    model = SentenceCompressor()
     model.compile(X.shape, crf=True)
     model.fit(X_train, y_train, X_val, y_val)
     score, acc = model.evaluate(X_test, y_test)

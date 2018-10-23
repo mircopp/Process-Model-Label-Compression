@@ -228,10 +228,11 @@ class SentenceCompressor:
         self.history = self.model.fit(X_train, y_train, batch_size=self.batch_size, epochs=n_epochs, validation_data=(X_val, y_val))
         if plot_history:
             # TODO: Test this function and use it as a figure in the work
+            hist = pd.DataFrame(self.history.history)
             plt.style.use("ggplot")
             plt.figure(figsize=(12, 12))
-            plt.plot(self.history["acc"])
-            plt.plot(self.history["val_acc"])
+            plt.plot(hist["acc"])
+            plt.plot(hist["val_acc"])
             plt.show()
 
     def predict(self, X):
