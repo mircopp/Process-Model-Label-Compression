@@ -2,6 +2,7 @@
 Ressources/* 
 ve/*
 matrizes/*
+*/__pycache__/*
 __pycache__/*
 .ipynb_checkpoints/*
-model_binaries/*
+model_binaries/sentence_preprocessor.bin

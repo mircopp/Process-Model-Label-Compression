@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
     print('Model training')
     model = SentenceCompressor()
-    model.compile(X.shape)
+    model.compile(X.shape, crf=True)
     model.fit(X_train, y_train, X_val, y_val)
     score, acc = model.evaluate(X_test, y_test)
     print('Model score: {}'.format(score))

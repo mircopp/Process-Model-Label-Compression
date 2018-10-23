@@ -2,17 +2,19 @@ from nltk.stem.wordnet import WordNetLemmatizer
 import numpy as np
 from gensim.models.word2vec import Word2Vec
 import multiprocessing
+
 from sklearn.preprocessing import LabelBinarizer
 from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_score
 
 from keras.models import Sequential
 from keras.layers import LSTM, Dense, TimeDistributed, Dropout, Bidirectional
-# from keras_contrib.layers.crf import CRF
-
+from keras_contrib.layers.crf import CRF
 from keras.optimizers import Adam
 from keras import backend as K
 from keras.models import model_from_json
+from keras.utils import plot_model
 
+import matplotlib.pyplot as plt
 
 
 class SentencePreprocessor:
@@ -209,19 +211,38 @@ class SentenceCompressor:
         # # Add dropout layer in between to avoid overfitting
         # self.model.add(Dropout(0.5))
 
-        if not self.crf:
+        if self.crf:
+            #TODO add crf layer from keras
+            # self.model.add(TimeDistributed(Dense(50, activation='relu')))
+            crf = CRF(1)
+            self.model.add(crf)
+            self.model.compile(optimizer='rmsprop', metrics=[crf.accuracy], loss=crf.loss_function)
+
+        else:
             self.model.add(TimeDistributed(Dense(1, activation='sigmoid')))
-        # else:
-        #     #TODO add crf layer from keras
-        #     self.model.add(TimeDistributed(CRF(1)))
+            self.model.compile(optimizer=Adam(lr=0.001), metrics=['accuracy'], loss=nll1)
 
-        self.model.compile(optimizer=Adam(lr=0.001), metrics=['accuracy'], loss=nll1)
+        self.model.summary()
 
-    def fit(self, X_train, y_train, X_val, y_val, n_epochs = 10):
-        self.model.fit(X_train, y_train, batch_size=self.batch_size, epochs=n_epochs, validation_data=(X_val, y_val))
+    def fit(self, X_train, y_train, X_val, y_val, n_epochs = 10, plot_history = True):
+        self.history = self.model.fit(X_train, y_train, batch_size=self.batch_size, epochs=n_epochs, validation_data=(X_val, y_val))
+        if plot_history:
+            # TODO: Test this function and use it as a figure in the work
+            plt.style.use("ggplot")
+            plt.figure(figsize=(12, 12))
+            plt.plot(self.history["acc"])
+            plt.plot(self.history["val_acc"])
+            plt.show()
 
     def predict(self, X):
         return self.model.predict_classes(X, batch_size=self.batch_size)
+
+    def plot_model(self, file_name=None):
+        #TODO: Test this function and use it as a figure in the work
+        if file_name:
+            plot_model(self.model, to_file=file_name, show_shapes=True, show_layer_names=True)
+        else:
+            plot_model(self.model, show_shapes=True, show_layer_names=True)
 
     def evaluate(self, X_test, y_test):
         # Automatic evaluation with default accuracy metric

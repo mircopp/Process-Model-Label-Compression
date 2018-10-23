@@ -8,3 +8,4 @@ tensorflow-gpu
 h5py
 nltk
 pandas
+matplotlib
