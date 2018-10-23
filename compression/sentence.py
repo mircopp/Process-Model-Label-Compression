@@ -1,5 +1,6 @@
 from nltk.stem.wordnet import WordNetLemmatizer
 import numpy as np
+import pandas as pd
 from gensim.models.word2vec import Word2Vec
 import multiprocessing
 
@@ -186,9 +187,10 @@ def max_length (sequences):
 
 class SentenceCompressor:
 
-    def __init__(self):
+    def __init__(self, crf=False):
         self.model = Sequential()
         self.batch_size = 32
+        self.crf = crf
 
 
 
@@ -201,22 +203,22 @@ class SentenceCompressor:
         # Add dropout layer in between to avoid overfitting
         self.model.add(Dropout(0.5))
 
-        # # Add Bi-LSTM Layer
-        # self.model.add(Bidirectional(LSTM(128, return_sequences=True)))
-        # # Add dropout layer in between to avoid overfitting
-        # self.model.add(Dropout(0.5))
-        #
-        # # Add Bi-LSTM Layer
-        # self.model.add(Bidirectional(LSTM(128, return_sequences=True)))
-        # # Add dropout layer in between to avoid overfitting
-        # self.model.add(Dropout(0.5))
+        # Add Bi-LSTM Layer
+        self.model.add(Bidirectional(LSTM(128, return_sequences=True)))
+        # Add dropout layer in between to avoid overfitting
+        self.model.add(Dropout(0.5))
+
+        # Add Bi-LSTM Layer
+        self.model.add(Bidirectional(LSTM(128, return_sequences=True)))
+        # Add dropout layer in between to avoid overfitting
+        self.model.add(Dropout(0.5))
 
         if self.crf:
-            #TODO add crf layer from keras
+            # TODO add crf layer from keras
             # self.model.add(TimeDistributed(Dense(50, activation='relu')))
             crf = CRF(1)
             self.model.add(crf)
-            self.model.compile(optimizer='rmsprop', metrics=[crf.accuracy], loss=crf.loss_function)
+            self.model.compile(optimizer=Adam(lr=0.001), metrics=['accuracy'], loss=crf.loss_function)
 
         else:
             self.model.add(TimeDistributed(Dense(1, activation='sigmoid')))
@@ -233,7 +235,13 @@ class SentenceCompressor:
             plt.figure(figsize=(12, 12))
             plt.plot(hist["acc"])
             plt.plot(hist["val_acc"])
-            plt.show()
+            plot_name = '3bilstm_training_history'
+            if self.shape[2] > 200:
+                plot_name += '_synfeat'
+            if self.crf:
+                plot_name += '_crf'
+
+            plt.savefig(plot_name + '.png')
 
     def predict(self, X):
         return self.model.predict_classes(X, batch_size=self.batch_size)
@@ -261,23 +269,27 @@ class SentenceCompressor:
             'compression_rate' : self.compression_rate(X_test, y_test),
         }
 
-    def save_model(self, files = ['sentence_compressor.json', 'sentence_compressor.h5']):
+    def save_model(self, model_name = 'sentence_compressor'):
         model_json = self.model.to_json()
-        with open('model_binaries/' + files[0], "w") as json_file:
+        with open('model_binaries/' + model_name + '.json', 'w') as json_file:
             json_file.write(model_json)
             json_file.close()
-        self.model.save_weights('model_binaries/' + files[1])
+        self.model.save_weights('model_binaries/' + model_name + '.h5')
         print('Saved keras model')
 
-    def load_model(self, files = ['sentence_compressor.json', 'sentence_compressor.h5']):
+    def load_model(self, model_name = 'sentence_compressor'):
         # load json and create model
-        json_file = open('model_binaries/' + files[0], 'r')
+        json_file = open('model_binaries/' + model_name + '.json', 'r')
         loaded_model_json = json_file.read()
         json_file.close()
         self.model = model_from_json(loaded_model_json)
         # load weights into new model
-        self.model.load_weights('model_binaries/' + files[1])
-        self.model.compile(loss=nll1, optimizer=Adam(lr=0.001),
+        self.model.load_weights('model_binaries/' + model_name + '.h5')
+        if self.crf:
+            crf = CRF(1)
+            self.model.compile(optimizer=Adam(lr=0.001), metrics=['accuracy'], loss=crf.loss_function)
+        else:
+            self.model.compile(loss=nll1, optimizer=Adam(lr=0.001),
                       metrics=['accuracy'])
         print("Loaded model from disk")
 

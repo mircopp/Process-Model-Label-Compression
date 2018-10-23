@@ -2,10 +2,11 @@ import numpy as np
 
 class CompressionLanguageModel():
 
-    def __init__(self, preprocessor, compressor):
+    def __init__(self, preprocessor, compressor, syn_feat = False):
         # Initialize the language model to make predictions for new sentences
         self.preprocessor = preprocessor
         self.compressor = compressor
+        self.syn_feat = syn_feat
 
     def get_compression(self, sentence, y):
         res = []
@@ -16,6 +17,6 @@ class CompressionLanguageModel():
 
     def transform_sentence(self, y):
         # TODO Test functionality
-        y_prep = self.preprocessor.transform(np.array([y]))[0]
+        y_prep = self.preprocessor.transform(np.array([y]), pos=self.syn_feat, dep=self.syn_feat)[0]
         y_pred = self.compressor.predict(y_prep)
         return self.get_compression(y, y_pred.reshape(y_pred.shape[1]))
