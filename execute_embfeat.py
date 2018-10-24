@@ -4,7 +4,7 @@ from save import save_preprocessed_data, load_preprocessed_data
 
 if __name__ == '__main__':
     source_path = 'matrizes/embedding/'
-    chunksize = 1
+    chunksize = 20
     try:
         X_google, y_google = load_preprocessed_data(chunksize=chunksize, source=source_path, name='preprocessed_X.google'), load_preprocessed_data(chunksize=chunksize, source=source_path, name='preprocessed_y.google')
     except FileNotFoundError:

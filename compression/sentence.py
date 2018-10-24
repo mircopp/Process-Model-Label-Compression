@@ -229,12 +229,17 @@ class SentenceCompressor:
     def fit(self, X_train, y_train, X_val, y_val, n_epochs = 10, plot_history = True):
         self.history = self.model.fit(X_train, y_train, batch_size=self.batch_size, epochs=n_epochs, validation_data=(X_val, y_val))
         if plot_history:
-            # TODO: Test this function and use it as a figure in the work
             hist = pd.DataFrame(self.history.history)
+            print(hist)
             plt.style.use("ggplot")
             plt.figure(figsize=(12, 12))
-            plt.plot(hist["acc"])
-            plt.plot(hist["val_acc"])
+            ax = plt.subplot(111)
+            ax.plot(hist["acc"], label='accuracy')
+            ax.plot(hist["val_acc"], label='validation accuracy')
+            ax.legend()
+            plt.xlabel('Number of epochs')
+            plt.ylabel('accuracy score')
+            plt.title('Training history')
             plot_name = '3bilstm_training_history'
             if self.shape[2] > 200:
                 plot_name += '_synfeat'
@@ -245,13 +250,6 @@ class SentenceCompressor:
 
     def predict(self, X):
         return self.model.predict_classes(X, batch_size=self.batch_size)
-
-    def plot_model(self, file_name=None):
-        #TODO: Test this function and use it as a figure in the work
-        if file_name:
-            plot_model(self.model, to_file=file_name, show_shapes=True, show_layer_names=True)
-        else:
-            plot_model(self.model, show_shapes=True, show_layer_names=True)
 
     def evaluate(self, X_test, y_test):
         # Automatic evaluation with default accuracy metric
