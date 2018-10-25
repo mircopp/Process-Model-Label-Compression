@@ -9,5 +9,3 @@ h5py
 nltk
 pandas
 matplotlib
-pydot
-git+https://www.github.com/keras-team/keras-contrib.git
