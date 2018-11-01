@@ -232,7 +232,7 @@ class SentenceCompressor:
             hist = pd.DataFrame(self.history.history)
             print(hist)
             plt.style.use("ggplot")
-            plt.figure(figsize=(12, 12))
+            plt.figure(figsize=(7, 7))
             ax = plt.subplot(111)
             ax.plot(hist["acc"], label='accuracy')
             ax.plot(hist["val_acc"], label='validation accuracy')
