@@ -13,7 +13,6 @@ from keras_contrib.layers.crf import CRF
 from keras.optimizers import Adam
 from keras import backend as K
 from keras.models import model_from_json
-from keras.utils import plot_model
 
 import matplotlib.pyplot as plt
 
@@ -304,7 +303,6 @@ class SentenceCompressor:
         return recall_score(y_true, y_pred)
 
     def per_sentence_accuracy(self, X_test, y_test):
-        # TODO implement per sentence accuracy calc
         y_pred = self.predict(X_test)
         y_pred = y_pred.reshape(y_pred.shape[0], y_pred.shape[1])
         y_test = y_test.reshape(y_test.shape[0], y_test.shape[1])

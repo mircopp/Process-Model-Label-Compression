@@ -8,6 +8,7 @@ def read_process_description_data(data_source):
     return json_objects
 
 if __name__ == '__main__':
+    # Make sure docker is running with the sentence parser, command: docker run -p 4000:80 sentence_parser_rest
     # Process description corpus
     PD_DATA_SOURCES = ['process1.json', 'process2.json', 'process3.json']
     for data_source in PD_DATA_SOURCES:

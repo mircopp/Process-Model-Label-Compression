@@ -29,6 +29,32 @@ def annotate_data(data):
     print('Elapsed time:\t {}:{}'.format(int((end - start) / 60), int((end - start) % 60)))
     return (sentences, compressions)
 
+def annotate_processes(process_data):
+    sentences = []
+    compressions = []
+    labels = []
+    start = time.time()
+    print("Started")
+
+    LEN_DATA = len(process_data)
+    p_bar = progressbar.ProgressBar(max_value=(LEN_DATA))
+
+    for i in range(len(process_data)):
+        sentences.append(get_annotation(process_data[i]['sentence']))
+        current_labels = []
+        for label in process_data[i]['related_labels']:
+            current_labels.append(get_annotation(label))
+        labels.append(current_labels)
+        if process_data[i]['compression']:
+            compressions.append(get_annotation(process_data[i]['compression']))
+        else:
+            compressions.append([])
+        p_bar.update(i + 1)
+
+    end = time.time()
+    print('Elapsed time:\t {}:{}'.format(int((end - start) / 60), int((end - start) % 60)))
+    return (sentences, compressions, labels)
+
 
 def get_annotation(sentence):
     sen_payload = {'sentence': sentence}
@@ -40,6 +66,17 @@ def get_annotation(sentence):
 def is_punctuation_mark(word):
     return (word['dependency_label'] == 'punct') and (word['pos'] != 'HYPH') and (word['word'] != '<EOS>')
 
+def filter_punctuation_marks(sequence):
+    result = []
+    sequence.append({'word': '<EOS>', 'pos': '.', 'dependency_label': 'punct',
+                   'id': sequence[len(sequence) - 1]['id'] if len(sequence) > 0 else 0,
+                   'parent': sequence[len(sequence) - 1]['parent'] if len(sequence) > 0 else -1})
+    for tmp in sequence:
+        if is_punctuation_mark(tmp):
+            continue
+        else:
+            result.append(tmp)
+    return result
 
 def generate_labels(source, target):
     source.append({'word': '<EOS>', 'pos': '.', 'dependency_label': 'punct', 'id': source[len(source) - 1]['id'],
@@ -64,11 +101,10 @@ def generate_labels(source, target):
             target.pop(0)
             if len(target) > 0:
                 current = target[0]
+                # Check if current word's dependency label in compression is 'punct' and pos label is not 'HYPH
                 while is_punctuation_mark(current) and len(target) > 0:
                     target.pop(0)
                     current = target[0]
-            # Check if current word's dependency label is 'punct' and pos label is not 'HYPH'
-            # TODO
         else:
             result.append([source[i]['word'], source[i]['pos'], source[i]['dependency_label'], source[i]['id'],
                            source[i]['parent'], 0])
