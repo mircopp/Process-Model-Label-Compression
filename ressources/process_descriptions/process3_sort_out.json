@@ -1,0 +1,11 @@
+[
+ {
+    "sentence" : "It should be noted that wooden pallets are only awarded to regular customers.",
+    "compression" : "",
+	"related_labels" : []
+  },{
+    "sentence" : "If, on the other hand, the customer does not collect the pallets himself, the cartons are always provided in a lattice box.",
+    "compression" : "",
+	"related_labels" : []
+  }
+]

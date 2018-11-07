@@ -1,0 +1,64 @@
+1.	Mit dem Wareneingang wird der Prozess angestoßen. Die Ware wird vom Lieferanten geliefert und trifft somit im Lager ein.
+2.	Daraufhin erfolgt durch Lageristen eine Prüfung, ob die Ware tatsächlich bestellt wurde. Bei Lieferung von nicht bestellter Ware wird die Annahme dieser durch Lageristen verweigert.
+3.	Liegt hingegen eine Bestellung vor, überprüft der Lagerist, ob die Liefermenge mit den Angaben auf dem Lieferschein übereinstimmt.
+4.	Fehlen Waren, trägt der Lagerist die Fehlmenge in den Lieferschein sowie in das Supply-Chain-Management (SCM)-System ein. Der Wareneingang informiert daraufhin den Lieferanten, der seinerseits einen neuen Lieferauftrag erteilt und die Ware zu einem späteren Zeitpunkt nachliefert.
+5.	Alle eingetroffenen Waren werden durch Lageristen auf ihre Einlagerungsfähigkeit hin geprüft, weil sie eventuell ungünstig hätten zusammengestellt worden sein können. Ist letzteres der Fall, muss die Ware umgepackt werden, um sie einlagerungsfähig zu machen. Hierfür stehen Container, Paletten und Kisten zur Verfügung. Kisten werden üblicherweise hierbei auf Paletten gestapelt, wobei diese wiederum in die stapelbaren Container gelagert werden.
+6.	Ist die Ware einlagerungsfähig, so wird geprüft, ob sie ein Mindesthaltbarkeitsdatum (MHD) aufweist. Wenn ja, muss dieses überprüft werden. Liegt es im vorgegeben Toleranzbereich, so wird das MHD erfasst. Anderenfalls wird die Ware aussortiert und dies ebenfalls auf dem Lieferschein als Fehlmenge vermerkt. Der Lieferant wird wiederum informiert und muss somit wieder die fehlende Ware nachliefern.
+7.	Nachdem alle Prüfungen abgeschlossen sind, kann die Ware in die verschiedenen Lagerräume verbracht werden, wobei die einzelnen Lagerorte im System vermerkt werden. Kühl zu lagernde Ware wird in den dafür vorgesehenen Kühlräumen gelagert. 
+
+
+Nach Anaphora Resolution:
+Mit dem Wareneingang wird der Prozess angestoßen.
+NA.
+
+Die Ware wird vom Lieferanten geliefert und trifft somit im Lager ein.
+Ware wird geliefert.
+
+Daraufhin erfolgt durch Lageristen eine Prüfung, ob die Ware tatsächlich bestellt wurde.
+Prüfen ob Bestellung vorhanden.
+
+Bei Lieferung von nicht bestellter Ware wird die Annahme dieser durch Lageristen verweigert.
+Annahme der Ware verweigern.
+
+Liegt hingegen eine Bestellung vor, überprüft der Lagerist, ob die Liefermenge mit den Angaben auf dem Lieferschein übereinstimmt.
+Liefermenge überprüfen.
+
+Fehlen Waren, trägt der Lagerist die Fehlmenge in den Lieferschein sowie in das Supply-Chain-Management System ein.
+Fehlmenge vermerken.
+
+Der Wareneingang informiert daraufhin den Lieferanten, der seinerseits einen neuen Lieferauftrag erteilt und die Ware zu einem späteren Zeitpunkt nachliefert.
+Lieferant informieren.
+Lieferauftrag erteilen.
+
+Alle eingetroffenen Waren werden durch Lageristen auf ihre Einlagerungsfähigkeit hin geprüft, weil sie eventuell ungünstig hätten zusammengestellt worden sein können.
+Überprüfe Einlagerungsfähigkeit.
+
+Ist letzteres der Fall, muss die Ware umgepackt werden, um sie einlagerungsfähig zu machen.
+Ware umpacken.
+
+Hierfür stehen Container, Paletten und Kisten zur Verfügung.
+NA.
+
+Kisten werden üblicherweise hierbei auf Paletten gestapelt, wobei diese wiederum in die stapelbaren Container gelagert werden.
+NA.
+
+Ist die Ware einlagerungsfähig, so wird geprüft, ob sie ein Mindesthaltbarkeitsdatum aufweist.
+Prüfe ob Ware Mindesthaltbarkeitsdatum aufweist.
+
+Wenn ja, muss das Mindesthaltbarkeitsdatum überprüft werden.
+Mindesthaltbarkeitsdatum prüfen.
+
+Liegt das Mindesthaltbarkeitsdatum im vorgegeben Toleranzbereich, so wird das Mindesthaltbarkeitsdatum erfasst.
+Mindesthaltbarkeitsdatum erfassen.
+
+Anderenfalls wird die Ware aussortiert und dies ebenfalls auf dem Lieferschein als Fehlmenge vermerkt.
+Ware aussortieren.
+
+Der Lieferant wird wiederum informiert und muss somit wieder die fehlende Ware nachliefern.
+NA.
+
+Nachdem alle Prüfungen abgeschlossen sind, kann die Ware in die verschiedenen Lagerräume verbracht werden, wobei die einzelnen Lagerorte im System vermerkt werden.
+Ware in Lagerräume einlagern.
+	
+Kühl zu lagernde Ware wird in den dafür vorgesehenen Kühlräumen gelagert.
+Ware in Kühlraum einlagern.

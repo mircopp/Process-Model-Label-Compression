@@ -1,0 +1,61 @@
+Sobald ein Kundenauftrag bei uns eingeht, wird von einem Vertriebsmitarbeiter geprüft, ob der Kunde bereits in der Kundendatenbank eingetragen ist.
+Wenn dies nicht der Fall ist, werden die Kundendaten neu angelegt.
+Sind die Daten angelegt erstellen wir eine Auftragsbestätigung im Warenwirtschaftssystem (WWS) und versenden diese.
+Ist die Auftragsbestätigung erstellt und versendet, werden die bestellten Schokoladentafeln ausgelagert.
+Im Anschluss an die Auslagerung findet eine abschließende Qualitätskontrolle statt.
+Stellen wir hierbei Mängel an der Verpackung oder der Schokolade fest, erfolgt die Entsorgung der minderwertigen Tafeln und danach eine erneute Auslagerung der fehlenden Menge an Schokoladentafeln.
+Ist die Qualität einwandfrei, werden die Tafeln in Kartons verpackt.
+Nachdem die Ware verpackt ist, wird im WWS überprüft, ob der Kunde Selbstabholer ist.
+Wenn ja, bekommt er von uns entweder eine Gitterbox oder eine Holzpalette zur Verfügung gestellt.
+Dabei ist zu beachten, dass Holzpaletten nur an Stammkunden vergeben werden.
+Ist der Kunde dagegen kein Selbstabholer, werden die Kartons in jedem Fall in einer Gitterbox bereitgestellt.
+Anschließend wird der Transport im WWS veranlasst.
+Die Ware wird dann verladen und zum Kunden transportiert bzw. vom Kunden mitgenommen.
+Als letzter Schritt erfolgt die Verbuchung in unserem WWS.
+
+Nach Anaphora Resolution:
+Sobald ein Kundenauftrag bei uns eingeht, wird von einem Vertriebsmitarbeiter geprüft, ob der Kunde bereits in der Kundendatenbank eingetragen ist.
+Prüfen ob Kunde in Kundendatenbank.
+
+Wenn dies nicht der Fall ist, werden die Kundendaten neu angelegt.
+Kundendaten anlegen.
+
+Sind die Daten angelegt erstellen wir eine Auftragsbestätigung im Warenwirtschaftssystem und versenden diese.
+Auftragsbestätigung erstellen und versenden.
+
+Ist die Auftragsbestätigung erstellt und versendet, werden die bestellten Schokoladentafeln ausgelagert.
+Schokoladentafeln auslagern.
+
+Im Anschluss an die Auslagerung findet eine abschließende Qualitätskontrolle statt.
+Qualitätskontrolle durchführen.
+
+Stellen wir hierbei Mängel an der Verpackung oder der Schokolade fest, erfolgt die Entsorgung der minderwertigen Tafeln und danach eine erneute Auslagerung der fehlenden Menge an Schokoladentafeln.
+Mangelhafte Ware entsorgen.
+	
+Ist die Qualität einwandfrei, werden die Schokoladentafeln in Kartons verpackt.
+Schokoladentafeln in Kartons verpacken.
+
+Nachdem die Ware verpackt ist, wird im Warenwirtschaftssystem überprüft, ob der Kunde Selbstabholer ist.
+Prüfen ob Kunde Selbstabholer ist.
+
+Wenn ja, bekommt er von uns entweder eine Gitterbox oder eine Holzpalette zur Verfügung gestellt.
+Holzpalette bereitstellen.
+Bereitstellen einer Palette.
+
+Dabei ist zu beachten, dass Holzpaletten nur an Stammkunden vergeben werden.
+NA.
+
+Ist der Kunde dagegen kein Selbstabholer, werden die Kartons in jedem Fall in einer Gitterbox bereitgestellt.
+Gitterbox bereitstellen.
+
+Anschließend wird der Transport im Warenwirtschaftssystem veranlasst.
+Transport veranlassen.
+
+Die Ware wird dann verladen und zum Kunden transportiert bzw. vom Kunden mitgenommen.
+Ware verladen.
+Ware transportieren.
+Ware mitnehmen.
+
+Als letzter Schritt erfolgt die Verbuchung in unserem Warenwirtschaftssystem.
+Verbuchung im Warenwirtschaftssystem.
+

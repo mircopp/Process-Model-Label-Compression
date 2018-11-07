@@ -1,5 +1,5 @@
 import json
-from compression.tokenization import annotate_data, build_matrizes, build_csv_matrix
+from stages.tokenization import annotate_data, build_matrizes, build_csv_matrix
 
 def read_google_data(data_source):
     data_string = open(data_source, 'rb').read().decode('utf-8')
@@ -26,7 +26,7 @@ if __name__ == '__main__':
                            'comp-data.eval.json']
     for data_source in GOOGLE_DATA_SOURCES:
         print('Reading ', data_source)
-        data = read_google_data('Ressources/google' + data_source)
+        data = read_google_data('ressources/google' + data_source)
         sentences, compressions = annotate_data(data)
         X = build_matrizes(sentences, compressions)
 

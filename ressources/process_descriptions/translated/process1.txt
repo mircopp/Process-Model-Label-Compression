@@ -1,0 +1,54 @@
+The goods receipt triggers the process.
+NA.
+
+The goods are delivered by the vendor and arrive in the warehouse.
+Goods are delivered.
+
+The warehouse clerks then check whether the goods have actually been ordered.
+Check whether purchase order exists.
+
+If goods that have not been ordered are delivered, the warehouse clerk refuses to accept the goods.
+Refuse acceptance of goods.
+
+If, on the other hand, there is an order, the warehouse clerk checks whether the delivery quantity corresponds to the information on the delivery note.
+Check delivery quantity.
+
+If goods are missing, the warehouse keeper enters the missing quantity in the delivery note and in the supply chain management system.
+Enter missing quantity in delivery note.
+
+The incoming goods department then informs the supplier, who in turn issues a new delivery order and delivers the goods at a later date.
+Inform supplier.
+Issue delivery order.
+
+All incoming goods are checked by warehousemen for their storability because they could have been put together unfavourably.
+Check storability.
+
+If the latter is the case, the goods must be repacked to make them fit for storage.
+Repack goods.
+
+Containers, pallets and crates are available for this purpose.
+NA.
+
+Boxes are usually stacked on pallets, which in turn are stored in stackable containers.
+NA.
+
+If the goods can be stored, the system checks whether they have a best-before date.
+Check whether goods have a best-before date.
+
+If so, the best-before date must be checked.
+Check best-before date.
+
+If the best-before date lies within the specified tolerance range, the best-before date is entered.
+Enter best-before date.
+
+Otherwise, the goods are sorted out and this is also noted on the delivery note as a shortfall.
+Sort out goods.
+
+The supplier is again informed and therefore has to deliver the missing goods again.
+NA.
+
+After all checks have been completed, the goods are stored in the various storage rooms, whereby the individual storage locations are noted in the system.
+Store goods in storage rooms.
+	
+Goods to be stored in cold storage are stored in the cold storage rooms provided for this purpose.
+Store goods in cold storage rooms.

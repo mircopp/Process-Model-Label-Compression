@@ -1,0 +1,44 @@
+As soon as we receive a customer order, a sales employee checks whether the customer has already been entered in the customer database.
+Check whether customer has already been entered in the customer database.
+
+If this is not the case, the customer data is newly created.
+Create customer data.
+
+Once the data has been created, we create an order confirmation in the merchandise management system and send it out.
+Create and send order confirmation.
+
+Once the order confirmation has been created and sent, the ordered chocolate bars are removed from storage.
+Chocolate bars are removed from storage.
+
+After removal from storage, a final quality control is carried out.
+Carry out quality control.
+
+If we detect any defects in the packaging or the chocolate, the inferior bars are disposed of and then the missing quantity of chocolate bars is removed again.
+Dispose of defective goods.
+	
+If the quality is perfect, the chocolate bars are packed in cartons.
+Pack chocolate bars in cartons.
+
+After the goods have been packed, the merchandise management system checks whether the customer is the person collecting the goods himself.
+Check whether the customer is the person collecting the goods himself.
+
+If so, we will provide him with either a lattice box or a wooden pallet.
+Provide wooden pallet.
+Provide pallet.
+
+It should be noted that wooden pallets are only awarded to regular customers.
+NA.
+
+If, on the other hand, the customer does not collect the pallets himself, the cartons are always provided in a lattice box.
+Provide lattice box.
+
+The transport is then arranged in the merchandise management system.
+Arrange transport.
+
+The goods are then loaded and transported to the customer or taken away by the customer.
+Load goods.
+Transport goods.
+Take goods away.
+
+The last step is the booking in our merchandise management system.
+Booking in the merchandise management system.

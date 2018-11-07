@@ -1,5 +1,5 @@
 import json
-from compression.tokenization import annotate_data, build_matrizes, build_csv_matrix
+from stages.tokenization import annotate_data, build_matrizes, build_csv_matrix
 
 def read_process_description_data(data_source):
     data_string = open(data_source, 'rb').read().decode('utf-8')
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     PD_DATA_SOURCES = ['process1.json', 'process2.json', 'process3.json']
     for data_source in PD_DATA_SOURCES:
         print('Reading ', data_source)
-        data = read_process_description_data('Ressources/process_descriptions/' + data_source)
+        data = read_process_description_data('ressources/process_descriptions/' + data_source)
         sentences, compressions = annotate_data(data)
         X = build_matrizes(sentences, compressions)
 

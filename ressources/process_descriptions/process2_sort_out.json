@@ -1,0 +1,43 @@
+[
+  {
+    "sentence" : "The payment can be made only after invoice verification, unless one is immediate payer.",
+    "compression" : "",
+	"related_labels" : []
+  },{
+    "sentence" : "There is no invoice verification for drop shipments.",
+    "compression" : "",
+	"related_labels" : []
+  },{
+    "sentence" : "The first step is to sort the documents and then assign them to a delivery note.",
+    "compression" : "",
+	"related_labels" : ["Sort documents.", "Assign documents to delivery note."]
+  },{
+    "sentence" : "If no delivery note is available, the transaction must be assigned manually.",
+    "compression" : "",
+	"related_labels" : ["Assign transaction manually."]
+  },{
+    "sentence" : "Now you must check whether there are differences between the delivery note and the invoice.",
+    "compression" : "",
+	"related_labels" : ["Check whether there are differences between delivery note and invoice."]
+  },{
+    "sentence" : "If the deviation is outside the tolerance range, a deviation check is carried out.",
+    "compression" : "",
+	"related_labels" : ["Carry out deviation check."]
+  },{
+    "sentence" : "Now it must be checked whether a credit-side postprocessing is necessary, and if necessary this must be carried out.",
+    "compression" : "",
+	"related_labels" : ["Check whether postprocessing is necessary.", "Carry out postprocessing."]
+  },{
+    "sentence" : "Now the invoice is archived and it is checked whether differences are to be posted and whether there was an immediate payment.",
+    "compression" : "",
+	"related_labels" : ["Archive invoice.", "Check whether differences are to be posted.", "Check whether it was an immediate payment."]
+  },{
+    "sentence" : "If differences are to be posted, the system branches to the goods valuation process.",
+    "compression" : "",
+	"related_labels" : ["Goods valuation."]
+  },{
+    "sentence" : "If no immediate payment has been made, the block indicators for the open items are removed and the invoice is released for payment and the outgoing payment posting process is called.",
+    "compression" : "",
+	"related_labels" : ["Remove Block Indicator.", "Release invoice for payment.", "Outgoing payment posting."]
+  }
+]

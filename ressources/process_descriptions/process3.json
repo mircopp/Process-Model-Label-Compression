@@ -1,0 +1,51 @@
+[
+  {
+    "sentence" : "As soon as we receive a customer order, a sales employee checks whether the customer has already been entered in the customer database.",
+    "compression" : "",
+	"related_labels" : ["Check whether customer has already been entered in the customer database."]
+  },{
+    "sentence" : "If this is not the case, the customer data is newly created.",
+    "compression" : "",
+	"related_labels" : ["Create customer data."]
+  },{
+    "sentence" : "Once the data has been created, we create an order confirmation in the merchandise management system and send it out.",
+    "compression" : "",
+	"related_labels" : ["Create and send order confirmation."]
+  },{
+    "sentence" : "Once the order confirmation has been created and sent, the ordered chocolate bars are removed from storage.",
+    "compression" : "",
+	"related_labels" : ["Chocolate bars are removed from storage."]
+  },{
+    "sentence" : "After removal from storage, a final quality control is carried out.",
+    "compression" : "",
+	"related_labels" : ["Carry out quality control."]
+  },{
+    "sentence" : "If we detect any defects in the packaging or the chocolate, the inferior bars are disposed of and then the missing quantity of chocolate bars is removed again.",
+    "compression" : "",
+	"related_labels" : ["Dispose of defective goods."]
+  },{
+    "sentence" : "If the quality is perfect, the chocolate bars are packed in cartons.",
+    "compression" : "",
+	"related_labels" : ["Pack chocolate bars in cartons."]
+  },{
+    "sentence" : "After the goods have been packed, the merchandise management system checks whether the customer is the person collecting the goods himself.",
+    "compression" : "",
+	"related_labels" : ["Check whether the customer is the person collecting the goods himself."]
+  },{
+    "sentence" : "If so, we will provide him with either a lattice box or a wooden pallet.",
+    "compression" : "",
+	"related_labels" : ["Provide wooden pallet.", "Provide lattice box."]
+  },{
+    "sentence" : "The transport is then arranged in the merchandise management system.",
+    "compression" : "",
+	"related_labels" : ["Arrange transport."]
+  },{
+    "sentence" : "The goods are then loaded and transported to the customer or taken away by the customer.",
+    "compression" : "",
+	"related_labels" : ["Load goods.", "Transport goods.", "Take goods away."]
+  },{
+    "sentence" : "The last step is the booking in our merchandise management system.",
+    "compression" : "",
+	"related_labels" : ["Booking in the merchandise management system."]
+  }
+]

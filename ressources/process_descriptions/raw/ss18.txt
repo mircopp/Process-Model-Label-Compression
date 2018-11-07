@@ -1,0 +1,67 @@
+1.	Trifft eine Rechnung (Streckenrechnung oder Lagerrechnung) ein, wird geprüft, ob sie elektronisch oder schriftlich vorliegt. Eine elektronische Rechnung wird direkt in das System übertragen, wohingegen eine schriftliche erst erfasst werden muss.
+2.	Nach der Erfassung sind die offenen Posten mit Sperrkennzeichen zu buchen. Danach erfolgt die Berechnung des Vorsteuerabzugs.
+3.	Nun erfolgt die Prüfung nach der Art des Zahlungseingangs. Die Zahlung kann erst nach Rechnungsprüfung (Prozess Rechnungsprüfung) vorgenommen werden, es sei denn man ist Sofortzahler. Hier ist die Rechnung schon vorher freizugeben. Für Streckengeschäfte erfolgt keine Rechnungsprüfung.
+Prozess Rechnungsprüfung
+4.	Als erstes sind die Belege zu sortieren und im Anschluss einem Lieferschein zuzuordnen. Ist kein Lieferschein vorhanden, muss der ein Vorgang manuell zugeordnet werden.
+5.	Jetzt muss geprüft werden, ob Differenzen zwischen dem Lieferschein und der Rechnung bestehen. Ist die Abweichung außerhalb des Toleranzbereiches, erfolgt eine Abweichungskontrolle.
+6.	Nun muss geprüft werden, ob eine kreditorische Nachbearbeitung notwendig ist, und gegebenenfalls ist diese auszuführen.
+7.	Jetzt wird die Rechnung archiviert und es wird geprüft, ob Differenzen zu buchen sind und ob eine Sofortzahlung vorlag. Im Falle, dass Differenzen zu buchen sind, wird in den Prozess der Warenbewertung verzweigt. Im Fall, dass keine Sofortzahlung erfolgt ist, sind die Sperrkennzeichen für die offenen Posten aufzuheben und die Rechnung wird zur Zahlung freigegeben und der Prozess der Zahlungsausgangsbuchung aufgerufen.
+
+
+Nach Anaphora Resolution:
+Trifft eine Rechnung ein, wird geprüft, ob sie elektronisch oder schriftlich vorliegt.
+Prüfe ob elektronische oder schriftliche Rechnung.
+
+Eine elektronische Rechnung wird direkt in das System übertragen, wohingegen eine schriftliche Rechnung erst erfasst werden muss.
+Rechnung ins System übertragen.
+Erfasse Rechnung.
+
+Nach der Erfassung sind die offenen Posten mit Sperrkennzeichen zu buchen.
+Buche offenen Posten mit Sperrkennzeichen.
+
+Danach erfolgt die Berechnung des Vorsteuerabzugs.
+Berechne Vorsteuerabzug.
+
+Nun erfolgt die Prüfung nach der Art des Zahlungseingangs.
+Prüfe Art des Zahlungseingangs.
+
+Die Zahlung kann erst nach Rechnungsprüfung vorgenommen werden, es sei denn man ist Sofortzahler.
+NA.
+
+Hier ist die Rechnung schon vorher freizugeben.
+Rechnung freigeben.
+
+Für Streckengeschäfte erfolgt keine Rechnungsprüfung.
+NA.
+
+Prozess Rechnungsprüfung
+Als erstes sind die Belege zu sortieren und im Anschluss einem Lieferschein zuzuordnen.
+Belege sortieren.
+Belege Lieferschein zuordnen.
+
+Ist kein Lieferschein vorhanden, muss der Vorgang manuell zugeordnet werden.
+Vorgang manuell zuordnen.
+
+Jetzt muss geprüft werden, ob Differenzen zwischen dem Lieferschein und der Rechnung bestehen.
+Prüfe ob Differenzen zwischen Lieferschein und Rechnung bestehen.
+
+Ist die Abweichung außerhalb des Toleranzbereiches, erfolgt eine Abweichungskontrolle.
+Abweichungskontrolle durchführen.
+
+Nun muss geprüft werden, ob eine kreditorische Nachbearbeitung notwendig ist, und gegebenenfalls ist diese auszuführen.
+Prüfe ob Nachbearbeitung notwendig.
+Nachbearbeitung ausführen.
+
+Jetzt wird die Rechnung archiviert und es wird geprüft, ob Differenzen zu buchen sind und ob eine Sofortzahlung vorlag.
+Rechnung archivieren.
+Prüfe ob Differenzen zu buchen.
+Prüfe ob Sofortzahlung vorlag.
+
+Im Falle, dass Differenzen zu buchen sind, wird in den Prozess der Warenbewertung verzweigt.
+Warenbewertung.
+
+Im Fall, dass keine Sofortzahlung erfolgt ist, sind die Sperrkennzeichen für die offenen Posten aufzuheben und die Rechnung wird zur Zahlung freigegeben und der Prozess der Zahlungsausgangsbuchung aufgerufen.
+Sperrkennzeichen aufheben.
+Rechnung zur Zahlung freigeben.
+Zahlungsausgangsbuchung.
+

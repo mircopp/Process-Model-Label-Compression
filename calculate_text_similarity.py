@@ -1,6 +1,6 @@
 import json
 import numpy as np
-from compression.tokenization import annotate_processes, filter_punctuation_marks, build_matrizes, build_csv_matrix
+from stages.tokenization import annotate_processes, filter_punctuation_marks, build_matrizes, build_csv_matrix
 from stages.preprocess import get_X_y
 from stages.use import get_compressions
 
@@ -22,13 +22,16 @@ def calculate_bagofword_similarity(bag1, bag2):
     sc_2 = calculate_soft_cardinality(bag2, similarity_matrix, 1)
     sc_union = calculate_soft_cardinality(union, similarity_matrix, 1)
     sc_intersect = sc_1 + sc_2 - sc_union
-    return (calculate_jaccard(sc_intersect, sc_union), calculate_dice(sc_intersect, sc_1, sc_2))
+    return (calculate_jaccard(sc_intersect, sc_union), calculate_dice(sc_intersect, sc_1, sc_2), calculate_cosine(sc_intersect, sc_1, sc_2))
 
 def calculate_jaccard(len_intersect, len_union):
     return len_intersect/len_union
 
 def calculate_dice(len_intersect, len_a, len_b):
     return (2*len_intersect)/(len_a + len_b)
+
+def calculate_cosine(len_intersect, len_a, len_b):
+    return len_intersect/((len_a * len_b)**0.5)
 
 def calculate_soft_cardinality(set_of_words, similarity_matrix, p):
     result = 0
@@ -83,7 +86,7 @@ if __name__ == '__main__':
     bows = []
     for data_source in PD_DATA_SOURCES:
         print('Reading ', data_source)
-        data = read_process_description_data('Ressources/process_descriptions/' + data_source)
+        data = read_process_description_data('ressources/process_descriptions/' + data_source)
         sentences, compressions, labels = annotate_processes(data)
         X = build_matrizes(sentences, compressions)
         header_row = ['word', 'pos', 'dependency_label', 'id', 'parent', 'EOS', 'kept']
@@ -122,10 +125,14 @@ if __name__ == '__main__':
     scores_syn = []
     scores_no_syn = []
     scores_original = []
-    header = ['label', 'original', 'compression_wo_syn', 'compression_with_syn', 'dice_original', 'dice_wo_syn', 'dice_with_syn', 'jaccard_original', 'jaccard_wo_syn', 'jaccard_with_syn']
+    header = ['label', 'original', 'compression_wo_syn', 'compression_with_syn', 'dice_original', 'dice_wo_syn', 'dice_with_syn', 'jaccard_original', 'jaccard_wo_syn', 'jaccard_with_syn', 'cosine_original', 'cosine_wo_syn', 'cosine_with_syn']
     res = []
+    no_tokens_raw = 0
+    no_tokens_labels = 0
     for i in range(len(bows)):
         for label in bows[i]:
+            no_tokens_labels += len(label)
+            no_tokens_raw += len(X[i])
             scores_syn.append(calculate_bagofword_similarity(label, predicted_compressions_with_synfeat[i]))
             scores_no_syn.append(calculate_bagofword_similarity(label, predicted_compressions_wo_synfeat[i]))
             scores_original.append(calculate_bagofword_similarity(label, X[i]))
@@ -133,8 +140,11 @@ if __name__ == '__main__':
             comp_string_no_syn = ' '.join(predicted_compressions_wo_synfeat[i])
             comp_string_syn = ' '.join(predicted_compressions_with_synfeat[i])
             ori_string = ' '.join(X[i])
-            res.append([label_string, ori_string, comp_string_no_syn, comp_string_syn, scores_original[-1][1], scores_no_syn[-1][1], scores_syn[-1][1], scores_original[-1][0], scores_no_syn[-1][0], scores_syn[-1][0]])
+            res.append([label_string, ori_string, comp_string_no_syn, comp_string_syn, scores_original[-1][1], scores_no_syn[-1][1], scores_syn[-1][1], scores_original[-1][0], scores_no_syn[-1][0], scores_syn[-1][0], scores_original[-1][2], scores_no_syn[-1][2], scores_syn[-1][2]])
 
+    print(no_tokens_raw)
+    print(no_tokens_labels)
+    print('Ratio:', no_tokens_labels/no_tokens_raw)
     res = np.array(res)
     print(res)
     scores = res[:, 4:]
@@ -144,6 +154,9 @@ if __name__ == '__main__':
     print('Averace dice without syn:', np.mean(scores[:, 1].astype(np.float64)))
     print('Averace dice with syn:', np.mean(scores[:, 2].astype(np.float64)))
     print('Averace jaccard original:', np.mean(scores[:, 3].astype(np.float64)))
-    print('Averace jaccard without syn::', np.mean(scores[:, 4].astype(np.float64)))
-    print('Averace jaccard with syn::', np.mean(scores[:, 5].astype(np.float64)))
+    print('Averace jaccard without syn:', np.mean(scores[:, 4].astype(np.float64)))
+    print('Averace jaccard with syn:', np.mean(scores[:, 5].astype(np.float64)))
+    print('Averace cosine original:', np.mean(scores[:, 6].astype(np.float64)))
+    print('Averace cosine without syn:', np.mean(scores[:, 7].astype(np.float64)))
+    print('Averace cosine with syn:', np.mean(scores[:, 8].astype(np.float64)))
 
