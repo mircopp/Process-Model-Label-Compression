@@ -11,7 +11,6 @@ def read_process_description_data(data_source):
     return json_objects
 
 def calculate_bagofword_similarity(bag1, bag2):
-    # TODO add meaningful implementation
     union = set()
     for word in bag1:
         union.add(word)

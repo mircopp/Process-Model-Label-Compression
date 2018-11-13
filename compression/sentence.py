@@ -9,7 +9,6 @@ from sklearn.metrics import precision_score, recall_score, f1_score, accuracy_sc
 
 from keras.models import Sequential
 from keras.layers import LSTM, Dense, TimeDistributed, Dropout, Bidirectional
-from keras_contrib.layers.crf import CRF
 from keras.optimizers import Adam
 from keras import backend as K
 from keras.models import model_from_json
@@ -186,16 +185,12 @@ def max_length (sequences):
 
 class SentenceCompressor:
 
-    def __init__(self, crf=False):
+    def __init__(self):
         self.model = Sequential()
         self.batch_size = 32
-        self.crf = crf
 
-
-
-    def compile(self, input_shape, crf = False):
+    def compile(self, input_shape):
         self.shape = input_shape
-        self.crf = crf
 
         # Add Bi-LSTM Layer
         self.model.add(Bidirectional(LSTM(128, return_sequences=True), input_shape=(self.shape[1], self.shape[2])))
@@ -212,16 +207,8 @@ class SentenceCompressor:
         # Add dropout layer in between to avoid overfitting
         self.model.add(Dropout(0.5))
 
-        if self.crf:
-            # TODO add crf layer from keras
-            # self.model.add(TimeDistributed(Dense(50, activation='relu')))
-            crf = CRF(1)
-            self.model.add(crf)
-            self.model.compile(optimizer=Adam(lr=0.001), metrics=['accuracy'], loss=crf.loss_function)
-
-        else:
-            self.model.add(TimeDistributed(Dense(1, activation='sigmoid')))
-            self.model.compile(optimizer=Adam(lr=0.001), metrics=['accuracy'], loss=nll1)
+        self.model.add(TimeDistributed(Dense(1, activation='sigmoid')))
+        self.model.compile(optimizer=Adam(lr=0.001), metrics=['accuracy'], loss=nll1)
 
         self.model.summary()
 
@@ -242,8 +229,6 @@ class SentenceCompressor:
             plot_name = '3bilstm_training_history'
             if self.shape[2] > 200:
                 plot_name += '_synfeat'
-            if self.crf:
-                plot_name += '_crf'
 
             plt.savefig(plot_name + '.png')
 
@@ -282,11 +267,7 @@ class SentenceCompressor:
         self.model = model_from_json(loaded_model_json)
         # load weights into new model
         self.model.load_weights('model_binaries/' + model_name + '.h5')
-        if self.crf:
-            crf = CRF(1)
-            self.model.compile(optimizer=Adam(lr=0.001), metrics=['accuracy'], loss=crf.loss_function)
-        else:
-            self.model.compile(loss=nll1, optimizer=Adam(lr=0.001),
+        self.model.compile(loss=nll1, optimizer=Adam(lr=0.001),
                       metrics=['accuracy'])
         print("Loaded model from disk")
 

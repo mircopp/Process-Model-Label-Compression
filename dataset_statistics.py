@@ -1,4 +1,3 @@
-from save import load_preprocessed_data
 from stages.preprocess import sentences_2D_to_3D, get_X_y
 import numpy as np
 import pandas as pd
