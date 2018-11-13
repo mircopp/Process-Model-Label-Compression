@@ -28,6 +28,12 @@ def filter_maxlen(X, y=None, max_len = 100):
 def compute_stats_of_single_corpus(X, y, result):
     result['max_len_before'] = max_length(X)
     result['pairs_before'] = len(X)
+    result['len'] = []
+    for i in range(len(X)):
+        result['len'].append(len(X[i]))
+    result['len'] = np.array(result['len'])
+    result['avg_len'] = np.mean(result['len'])
+    result['std_len'] = np.std(result['len'])
     X, y = filter_maxlen(X, y)
     result['pairs'] = len(X)
     result['max_len'] = max_length(X)
@@ -56,6 +62,7 @@ def compute_stats_of_single_corpus(X, y, result):
             word_vocabulary.add(X[i][j][0])
             pos_vocabulary.add(X[i][j][1])
             dep_vocabulary.add(X[i][j][2])
+
     result['vocab'] = len(word_vocabulary)
     result['pos'] = len(pos_vocabulary)
     result['dep'] = len(dep_vocabulary)
