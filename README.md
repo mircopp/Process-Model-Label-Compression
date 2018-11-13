@@ -82,7 +82,7 @@ The google news corpus need to be downloaded [here](https://github.com/google-re
 Before starting the [**main_tokenization.py**](main_tokenization.py) script one need to setup the docker container for syntax parsing using the [syntaxnet parser](https://github.com/tensorflow/models/tree/master/research/syntaxnet).
 Therefore, one needs to build the docker container first by running the following commands:
 ```bash
-docker build syntaxnet/ -t syntax_parser_rest
+docker build syntaxnet/ -t sentence_parser_rest
 ```
 After this step the docker container needs to be started with this command:
 ```bash
