@@ -1,14 +1,14 @@
-import subprocess
 import requests
 import time
 import progressbar
 import pandas as pd
 
-# Run the sentence parsing REST API
-subprocess.Popen(['docker', 'run', '-p', '4000:80', 'sentence_parser_rest'])
-# os.system('docker run -p 4000:80 sentence_parser_rest')
-
 def annotate_data(data):
+    """
+    Annotates the data using syntaxnet as a RESTful API.
+    :param data: The sentences to be annotated
+    :return: The parsed sentences and compressions
+    """
     sentences = []
     compressions = []
     start = time.time()
@@ -30,6 +30,11 @@ def annotate_data(data):
     return (sentences, compressions)
 
 def annotate_processes(process_data):
+    """
+    Annotate the process description sentences.
+    :param process_data: The process description sentences
+    :return: The parsed sentences and compressions
+    """
     sentences = []
     compressions = []
     labels = []
@@ -57,6 +62,11 @@ def annotate_processes(process_data):
 
 
 def get_annotation(sentence):
+    """
+    Get the annotation for a single sentence.
+    :param sentence: The sentence to be parsed.
+    :return: The parsed list of word tokens.
+    """
     sen_payload = {'sentence': sentence}
     req = requests.post('http://localhost:4000/parse', json=sen_payload)
     sen_tokens = req.json()
@@ -64,9 +74,19 @@ def get_annotation(sentence):
 
 
 def is_punctuation_mark(word):
+    """
+    Checks whether a word is a punctuation mark.
+    :param word: The word to be checked.
+    :return: True if the word is a punctuation mark, false otherwise.
+    """
     return (word['dependency_label'] == 'punct') and (word['pos'] != 'HYPH') and (word['word'] != '<EOS>')
 
 def filter_punctuation_marks(sequence):
+    """
+    Filters the punctuation mark of a sequence of parsed tokens.
+    :param sequence: The parsed sequence to be filtered.
+    :return: The filtered sequence.
+    """
     result = []
     sequence.append({'word': '<EOS>', 'pos': '.', 'dependency_label': 'punct',
                    'id': sequence[len(sequence) - 1]['id'] if len(sequence) > 0 else 0,
@@ -79,6 +99,12 @@ def filter_punctuation_marks(sequence):
     return result
 
 def generate_labels(source, target):
+    """
+    Annotate the labels for a given sentence-compression pair.
+    :param source: The original sentence as a sequence of word tokens.
+    :param target: The compressed sentence as a sequence of word tokens
+    :return: The labelled feature matrix
+    """
     source.append({'word': '<EOS>', 'pos': '.', 'dependency_label': 'punct', 'id': source[len(source) - 1]['id'],
                    'parent': source[len(source) - 1]['parent']})
     target.append({'word': '<EOS>', 'pos': '.', 'dependency_label': 'punct', 'id': target[len(target) - 1]['id'] if len(target) > 0 else 0,
@@ -125,6 +151,12 @@ def generate_labels(source, target):
 
 
 def build_matrizes(sentences, compressions):
+    """
+    Build feature matrix for sentences and compressions as labelled data.
+    :param sentences: The sentences.
+    :param compressions: The compressions.
+    :return: A feature matrix
+    """
     dropped = 0
     res = []
     for sentence, compression in zip(sentences, compressions):
@@ -138,6 +170,12 @@ def build_matrizes(sentences, compressions):
 
 
 def build_csv_matrix(header_row, matrizes):
+    """
+    Transform the data into a csv DataFrame.
+    :param header_row: The column types
+    :param matrizes: The sequence matrix
+    :return: The transformed DataFrame
+    """
     data = []
     for sentence in matrizes:
         for i in range(len(sentence)):

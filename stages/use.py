@@ -5,6 +5,13 @@ from compression.sentence import SentenceCompressor
 from compression.language import CompressionLanguageModel
 
 def use(X, y, use_synfeat=False):
+    """
+    Apply the preprocessing and the compression model in X and check against ground truth y
+    :param X: The parsed sentences.
+    :param y: The true labels.
+    :param use_synfeat: Use syntactical features?
+    :return: None
+    """
     with open('model_binaries/sentence_preprocessor.bin', 'rb') as model_file:
         print('Loading model')
         preprocessor = pc.load(model_file)
@@ -37,6 +44,12 @@ def use(X, y, use_synfeat=False):
 
 
 def get_compressions(X, use_synfeat=False):
+    """
+    Get the compression for X
+    :param X: Input feature matrix
+    :param use_synfeat: Use syntactical features?
+    :return: The compressed sequences of words
+    """
     with open('model_binaries/sentence_preprocessor.bin', 'rb') as model_file:
         print('Loading model')
         preprocessor = pc.load(model_file)

@@ -33,7 +33,7 @@ if __name__ == '__main__':
                                'comp-data.eval.json']
         for data_source in GOOGLE_DATA_SOURCES:
             print('Reading ', data_source)
-            data = read_google_data('ressources/google' + data_source)
+            data = read_google_data('ressources/google/' + data_source)
             sentences, compressions = annotate_data(data)
             X = build_matrizes(sentences, compressions)
 

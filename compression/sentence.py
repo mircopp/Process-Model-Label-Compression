@@ -19,6 +19,13 @@ import matplotlib.pyplot as plt
 class SentencePreprocessor:
 
     def __init__(self, lemmatize=True, numb_tokens=True, embedding_size=200, max_len = 100):
+        """
+        Initializes a SentencePreprocessor object
+        :param lemmatize: Use lammatizing?
+        :param numb_tokens: Clean data with NUMB tokens?
+        :param embedding_size: Dimensionality of word embeddings
+        :param max_len: Length of padded sequences
+        """
         self.lemmatize = lemmatize
         self.numb_tokens = numb_tokens
         self.embedding_size = embedding_size
@@ -32,6 +39,11 @@ class SentencePreprocessor:
         self.dep_vocabulary = set()
 
     def fit (self, X):
+        """
+        Fits the preprocessor to the given vocabulary in X
+        :param X: The tokenized sequences of words
+        :return: None
+        """
         longest_sequence = max_length(X)
         self.max_len = longest_sequence if longest_sequence < self.max_len else self.max_len
         for x in X:
@@ -81,6 +93,14 @@ class SentencePreprocessor:
         self.dep2vec.fit([dep for dep in self.dep_vocabulary])
 
     def transform(self, X, y = None, pos=True, dep=True):
+        """
+        Transforms the matrix X and label vector y into feature vectors
+        :param X: Tokenized sequences of words
+        :param y: Labels for sequences
+        :param pos: Use POS tags?
+        :param dep: Use DEP labels?
+        :return: X, y as feature vectors
+        """
         # First step: delete all sequences that are longer than to expect (these much likely are wrongly parsed)
         X, y = self._filter_maxlen(X, y)
         longest_sequence = max_length(X)
@@ -133,9 +153,17 @@ class SentencePreprocessor:
 
         return X_sequences, y_sequence
 
-    def fit_transform(self, X, y):
+    def fit_transform(self, X, y, pos=True, dep=True):
+        """
+        Executes first fit then transform.
+        :param X: Tokenized sequences of words
+        :param y: Labels for sequences
+        :param pos: Use POS tags?
+        :param dep: Use DEP labels?
+        :return: X, y as feature vectors
+        """
         self.fit(X)
-        return self.transform(X, y)
+        return self.transform(X, y, pos=pos, dep=dep)
 
     def _filter_maxlen(self, X, y=None):
         idx_to_delete = []
@@ -186,10 +214,18 @@ def max_length (sequences):
 class SentenceCompressor:
 
     def __init__(self):
+        """
+        Initializes the SentenceCompressor model.
+        """
         self.model = Sequential()
         self.batch_size = 32
 
     def compile(self, input_shape):
+        """
+        Compiles the model.
+        :param input_shape: The shape of the input data.
+        :return: None
+        """
         self.shape = input_shape
 
         # Add Bi-LSTM Layer
@@ -213,6 +249,16 @@ class SentenceCompressor:
         self.model.summary()
 
     def fit(self, X_train, y_train, X_val, y_val, n_epochs = 10, plot_history = True):
+        """
+        Execute the model training.
+        :param X_train: Training feature matrix
+        :param y_train: Training labels
+        :param X_val: Validation feature matrix
+        :param y_val: Validation labels
+        :param n_epochs: Number of epochs
+        :param plot_history: Plot the training history?
+        :return: None
+        """
         self.history = self.model.fit(X_train, y_train, batch_size=self.batch_size, epochs=n_epochs, validation_data=(X_val, y_val))
         if plot_history:
             hist = pd.DataFrame(self.history.history)
@@ -233,15 +279,32 @@ class SentenceCompressor:
             plt.savefig(plot_name + '.png')
 
     def predict(self, X):
+        """
+        Predict on features X.
+        :param X: The feature matrix to predict on
+        :return: The predicted deletion labels.
+        """
         return self.model.predict_classes(X, batch_size=self.batch_size)
 
     def evaluate(self, X_test, y_test):
+        """
+        Autmoatic evaluation calculating the loss function and accuracy.
+        :param X_test: Test feature matrix
+        :param y_test: Test labels
+        :return: The loss function score and the accuracy score
+        """
         # Automatic evaluation with default accuracy metric
         score, acc = self.model.evaluate(X_test, y_test,
                                          batch_size=self.batch_size)
         return score, acc
 
     def calculate_metrics(self, X_test, y_test):
+        """
+        Custom evaluation computing the relevant metrics.
+        :param X_test: Test feature matrix
+        :param y_test: Test labels
+        :return: The metric scores as a dict.
+        """
         return {
             'precision' : self.precision_score(X_test, y_test),
             'recall' : self.recall_score(X_test, y_test),
@@ -252,6 +315,11 @@ class SentenceCompressor:
         }
 
     def save_model(self, model_name = 'sentence_compressor'):
+        """
+        Saves the models weights and architecture
+        :param model_name: The name of the model to be saved.
+        :return:
+        """
         model_json = self.model.to_json()
         with open('model_binaries/' + model_name + '.json', 'w') as json_file:
             json_file.write(model_json)
@@ -260,6 +328,11 @@ class SentenceCompressor:
         print('Saved keras model')
 
     def load_model(self, model_name = 'sentence_compressor'):
+        """
+        Loads a pretrained model from weights and architecture json and re-compiles it.
+        :param model_name: The name of the pre-trained model
+        :return: None
+        """
         # load json and create model
         json_file = open('model_binaries/' + model_name + '.json', 'r')
         loaded_model_json = json_file.read()
@@ -272,18 +345,42 @@ class SentenceCompressor:
         print("Loaded model from disk")
 
     def f1_score(self, X_test, y_test):
+        """
+        Compute f1 score.
+        :param X_test: Test feature matrix
+        :param y_test: Test labels
+        :return: F1 score
+        """
         y_pred, y_true = self._y_pred_y_true(X_test, y_test)
         return f1_score(y_true, y_pred)
 
     def precision_score(self, X_test, y_test):
+        """
+        Compute precision score.
+        :param X_test: Test feature matrix
+        :param y_test: Test labels
+        :return: Precision score
+        """
         y_pred, y_true = self._y_pred_y_true(X_test, y_test)
         return precision_score(y_true, y_pred)
 
     def recall_score(self, X_test, y_test):
+        """
+        Compute recall score.
+        :param X_test: Test feature matrix
+        :param y_test: Test labels
+        :return: Recall score
+        """
         y_pred, y_true = self._y_pred_y_true(X_test, y_test)
         return recall_score(y_true, y_pred)
 
     def per_sentence_accuracy(self, X_test, y_test):
+        """
+        Compute sentence-based accuracy score.
+        :param X_test: Test feature matrix
+        :param y_test: Test labels
+        :return: Sentence-based accuracy score
+        """
         y_pred = self.predict(X_test)
         y_pred = y_pred.reshape(y_pred.shape[0], y_pred.shape[1])
         y_test = y_test.reshape(y_test.shape[0], y_test.shape[1])
@@ -300,10 +397,22 @@ class SentenceCompressor:
         return correctly_classified/len(y_pred)
 
     def word_accuracy(self, X_test, y_test):
+        """
+        Compute word-based accuracy score.
+        :param X_test: Test feature matrix
+        :param y_test: Test labels
+        :return: Word-based accuracy score
+        """
         y_pred, y_true = self._y_pred_y_true(X_test, y_test)
         return accuracy_score(y_true, y_pred)
 
     def compression_rate(self, X_test, y_test):
+        """
+        Compute compression rate.
+        :param X_test: Test feature matrix
+        :param y_test: Test labels
+        :return: Compression rate for predicted values as well as for the real labels given as y_test
+        """
         y_pred, y_true = self._y_pred_y_true(X_test, y_test)
         pred_condition = y_pred == 1
         true_condition = y_true == 1

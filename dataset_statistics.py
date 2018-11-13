@@ -31,8 +31,8 @@ def compute_stats_of_single_corpus(X, y, result):
     for i in range(len(X)):
         result['len'].append(len(X[i]))
     result['len'] = np.array(result['len'])
-    result['avg_len'] = np.mean(result['len'])
-    result['std_len'] = np.std(result['len'])
+    result['avg_len_before'] = np.mean(result['len'])
+    result['std_len_before'] = np.std(result['len'])
     X, y = filter_maxlen(X, y)
     result['pairs'] = len(X)
     result['max_len'] = max_length(X)

@@ -7,18 +7,18 @@ if __name__ == '__main__':
     chunksize = 20
 
     try:
-        X_google, y_google = load_preprocessed_data(chunksize=chunksize, source=source_path_syn, name='preprocessed_X.google'), load_preprocessed_data(chunksize=chunksize, source=source_path_syn, name='preprocessed_y.google')
+        X_google, y_google = load_preprocessed_data(chunksize=chunksize, source=source_path_syn,
+                                                    name='preprocessed_X.google'), load_preprocessed_data(
+            chunksize=chunksize, source=source_path_syn, name='preprocessed_y.google')
         print('Starting syn model training.')
         train(X_google, y_google, use_synfeat=True)
 
         X_google, y_google = load_preprocessed_data(chunksize=chunksize, source=source_path_emb,
-                                                        name='preprocessed_X.google'), load_preprocessed_data(
-                chunksize=chunksize, source=source_path_emb, name='preprocessed_y.google')
+                                                    name='preprocessed_X.google'), load_preprocessed_data(
+            chunksize=chunksize, source=source_path_emb, name='preprocessed_y.google')
 
         print('Starting emb model training.')
         train(X_google, y_google, use_synfeat=False)
 
     except FileNotFoundError:
         print('Execute preprocessing first!')
-
-

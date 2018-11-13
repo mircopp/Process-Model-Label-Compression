@@ -1,6 +1,13 @@
 from compression.sentence import SentenceCompressor
 
 def train(X, y, use_synfeat=True):
+    """
+    Execute the training of the compression model and saves the model.
+    :param X: The input data matrix
+    :param y: The input labels
+    :param use_synfeat: Use syntactical features?
+    :return: None
+    """
     model = SentenceCompressor()
     X_train, X_val, X_test, y_train, y_val, y_test = X[2000:], X[1000:2000], X[:1000], y[2000:], y[1000:2000], y[:1000]
 

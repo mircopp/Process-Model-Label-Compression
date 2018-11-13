@@ -23,6 +23,5 @@ if __name__ == '__main__':
         save_preprocessed_data(X_pd, source=source_path_emb, chunksize=1, name='preprocessed_X.pd')
         save_preprocessed_data(y_pd, source=source_path_emb, chunksize=1, name='preprocessed_y.pd')
         print('Finished preprocessing.')
-        ressources / google
     except FileNotFoundError:
         print('Tokenize sentences first before starting preprocessing!')

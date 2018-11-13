@@ -4,6 +4,11 @@ import pickle as pc
 from compression.sentence import SentencePreprocessor
 
 def sentences_2D_to_3D (X):
+    """
+    Transforms token lists into sentence sequences back again.
+    :param X: The token list as a matrix
+    :return: Sequence matrix.
+    """
     res = []
     seq = []
     for x in X:
@@ -14,6 +19,11 @@ def sentences_2D_to_3D (X):
     return np.array(res)
 
 def get_X_y (data):
+    """
+    Transform sequence matrix into X as feature matrix and y as labels.
+    :param data: The sequence matrix
+    :return:
+    """
     X, y = [], []
     for x in data:
         curr_X = []
@@ -26,6 +36,11 @@ def get_X_y (data):
     return np.array(X), np.array(y)
 
 def preprocess (use_syn_feat=True):
+    """
+    Execute the preprocessing.
+    :param use_syn_feat: Use syntactical features?
+    :return: Preprocessed X_google, y_google, X_pd, y_pd
+    """
     print('Loading data')
     CROSS_VAL_FACTOR = 1
 
