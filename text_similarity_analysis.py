@@ -57,6 +57,12 @@ def calculate_syntactical_word_similarity(word_a, word_b):
     return 1-(edit_distance/max_len)
 
 def levenshtein(s1, s2):
+    """
+    Implementation according to https://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Levenshtein_distance
+    :param s1: First string.
+    :param s2: Second string
+    :return: Levenshtein edit-distance
+    """
     if len(s1) < len(s2):
         return levenshtein(s2, s1)
 
