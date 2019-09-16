@@ -3,8 +3,9 @@ import numpy as np
 
 from compression.sentence import SentenceCompressor
 from compression.language import CompressionLanguageModel
+from stages.preprocess import preprocess
 
-def use(X, y, use_synfeat=False):
+def use(X, y, use_synfeat=True):
     """
     Apply the preprocessing and the compression model in X and check against ground truth y
     :param X: The parsed sentences.
@@ -23,6 +24,15 @@ def use(X, y, use_synfeat=False):
     else:
         compressor.load_model(model_name='sentence_compressor_3bilstm')
     compressor.model.summary()
+    X_pd, y_pd = preprocessor.transform(X, y, use_synfeat, use_synfeat)
+    metrics = compressor.calculate_metrics(X_pd, y_pd)
+    print('Model precision: {}'.format(metrics['precision']))
+    print('Model recall: {}'.format(metrics['recall']))
+    print('Model F1 score: {}'.format(metrics['f1']))
+    print('Model word accuracy: {}'.format(metrics['word_accuracy']))
+    print('Model sentence accuracy: {}'.format(metrics['sentence_accuracy']))
+    print('Model compression rate: {}'.format(metrics['compression_rate']))
+
 
     language_model = CompressionLanguageModel(preprocessor, compressor, syn_feat=use_synfeat)
 

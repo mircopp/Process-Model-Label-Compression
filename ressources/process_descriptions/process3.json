@@ -1,51 +1,51 @@
 [
   {
     "sentence" : "As soon as we receive a customer order, a sales employee checks whether the customer has already been entered in the customer database.",
-    "compression" : "",
+    "compression" : "checks whether customer has already been entered in the customer database.",
 	"related_labels" : ["Check whether customer has already been entered in the customer database."]
   },{
     "sentence" : "If this is not the case, the customer data is newly created.",
-    "compression" : "",
+    "compression" : "customer data is newly created.",
 	"related_labels" : ["Create customer data."]
   },{
     "sentence" : "Once the data has been created, we create an order confirmation in the merchandise management system and send it out.",
-    "compression" : "",
+    "compression" : "create an order confirmation and send it out.",
 	"related_labels" : ["Create and send order confirmation."]
   },{
     "sentence" : "Once the order confirmation has been created and sent, the ordered chocolate bars are removed from storage.",
-    "compression" : "",
+    "compression" : "chocolate bars are removed from storage.",
 	"related_labels" : ["Chocolate bars are removed from storage."]
   },{
     "sentence" : "After removal from storage, a final quality control is carried out.",
-    "compression" : "",
+    "compression" : "quality control is carried out.",
 	"related_labels" : ["Carry out quality control."]
   },{
     "sentence" : "If we detect any defects in the packaging or the chocolate, the inferior bars are disposed of and then the missing quantity of chocolate bars is removed again.",
-    "compression" : "",
+    "compression" : "inferior bars are disposed of",
 	"related_labels" : ["Dispose of defective goods."]
   },{
     "sentence" : "If the quality is perfect, the chocolate bars are packed in cartons.",
-    "compression" : "",
+    "compression" : "chocolate bars are packed in cartons.",
 	"related_labels" : ["Pack chocolate bars in cartons."]
   },{
     "sentence" : "After the goods have been packed, the merchandise management system checks whether the customer is the person collecting the goods himself.",
-    "compression" : "",
+    "compression" : "checks whether the customer is the person collecting the goods himself.",
 	"related_labels" : ["Check whether the customer is the person collecting the goods himself."]
   },{
     "sentence" : "If so, we will provide him with either a lattice box or a wooden pallet.",
-    "compression" : "",
+    "compression" : "provide with a lattice box or a wooden pallet.",
 	"related_labels" : ["Provide wooden pallet.", "Provide lattice box."]
   },{
     "sentence" : "The transport is then arranged in the merchandise management system.",
-    "compression" : "",
+    "compression" : "transport is arranged.",
 	"related_labels" : ["Arrange transport."]
   },{
     "sentence" : "The goods are then loaded and transported to the customer or taken away by the customer.",
-    "compression" : "",
+    "compression" : "goods are loaded and transported or taken away",
 	"related_labels" : ["Load goods.", "Transport goods.", "Take goods away."]
   },{
     "sentence" : "The last step is the booking in our merchandise management system.",
-    "compression" : "",
+    "compression" : "booking in our merchandise management system.",
 	"related_labels" : ["Booking in the merchandise management system."]
   }
 ]

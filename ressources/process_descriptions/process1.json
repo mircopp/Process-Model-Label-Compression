@@ -1,59 +1,59 @@
 [
   {
     "sentence" : "The goods are delivered by the vendor and arrive in the warehouse.",
-    "compression" : "",
+    "compression" : "goods are delivered.",
 	"related_labels" : ["Goods are delivered."]
   },{
     "sentence" : "The warehouse clerks then check whether the goods have actually been ordered.",
-    "compression" : "",
+    "compression" : "check whether goods have been ordered.",
 	"related_labels" : ["Check whether purchase order exists."]
   },{
     "sentence" : "If goods that have not been ordered are delivered, the warehouse clerk refuses to accept the goods.",
-    "compression" : "",
+    "compression" : "refuses to accept the goods.",
 	"related_labels" : ["Refuse acceptance of goods."]
   },{
     "sentence" : "If, on the other hand, there is an order, the warehouse clerk checks whether the delivery quantity corresponds to the information on the delivery note.",
-    "compression" : "",
+    "compression" : "checks delivery quantity.",
 	"related_labels" : ["Check delivery quantity."]
   },{
     "sentence" : "If goods are missing, the warehouse keeper enters the missing quantity in the delivery note and in the supply chain management system.",
-    "compression" : "",
+    "compression" : "enters missing quantity in the delivery note.",
 	"related_labels" : ["Enter missing quantity in delivery note."]
   },{
     "sentence" : "The incoming goods department then informs the supplier, who in turn issues a new delivery order and delivers the goods at a later date.",
-    "compression" : "",
+    "compression" : "informs supplier issues delivery order.",
 	"related_labels" : ["Inform supplier.","Issue delivery order."]
   },{
     "sentence" : "All incoming goods are checked by warehousemen for their storability because they could have been put together unfavourably.",
-    "compression" : "",
+    "compression" : "checked storability.",
 	"related_labels" : ["Check storability."]
   },{
     "sentence" : "If the latter is the case, the goods must be repacked to make them fit for storage.",
-    "compression" : "",
+    "compression" : "goods must be repacked.",
 	"related_labels" : ["Repack goods."]
   },{
     "sentence" : "If the goods can be stored, the system checks whether they have a best-before date.",
-    "compression" : "",
+    "compression" : "checks whether they have a best-before date.",
 	"related_labels" : ["Check whether goods have a best-before date."]
   },{
     "sentence" : "If so, the best-before date must be checked.",
-    "compression" : "",
+    "compression" : "best-before date must be checked.",
 	"related_labels" : ["Check best-before date."]
   },{
     "sentence" : "If the best-before date lies within the specified tolerance range, the best-before date is entered.",
-    "compression" : "",
+    "compression" : "best-before date is entered.",
 	"related_labels" : ["Enter best-before date."]
   },{
     "sentence" : "Otherwise, the goods are sorted out and this is also noted on the delivery note as a shortfall.",
-    "compression" : "",
+    "compression" : "goods are sorted out.",
 	"related_labels" : ["Sort out goods."]
   },{
     "sentence" : "After all checks have been completed, the goods are stored in the various storage rooms, whereby the individual storage locations are noted in the system.",
-    "compression" : "",
+    "compression" : "goods are stored in storage rooms.",
 	"related_labels" : ["Store goods in storage rooms."]
   },{
     "sentence" : "Goods to be stored in cold storage are stored in the cold storage rooms provided for this purpose.",
-    "compression" : "",
+    "compression" : "Goods are stored in cold storage rooms.",
 	"related_labels" : ["Store goods in cold storage rooms."]
   }
 ]

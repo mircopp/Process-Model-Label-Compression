@@ -1,27 +1,27 @@
 [
   {
     "sentence" : "When an invoice arrives, it is checked whether it is available electronically or in writing.",
-    "compression" : "",
+    "compression" : "invoice is checked whether it is electronically or in writing.",
 	"related_labels" : ["Check whether it is an electronic or written invoice."]
   },{
     "sentence" : "An electronic invoice is transferred directly into the system, whereas a written invoice must first be entered.",
-    "compression" : "",
+    "compression" : "invoice is transferred into the system invoice must be entered.",
 	"related_labels" : ["Transfer an invoice to the system.", "Enter invoice."]
   },{
     "sentence" : "After entry, the open items must be posted with the blocking indicator.",
-    "compression" : "",
+    "compression" : "open items must be posted with the blocking indicator.",
 	"related_labels" : ["Post open items with blocking indicator."]
   },{
     "sentence" : "Then the calculation of the input tax deduction takes place.",
-    "compression" : "",
+    "compression" : "calculation of the input tax deduction takes place.",
 	"related_labels" : ["Calculate input tax deduction."]
   },{
     "sentence" : "The system now checks the incoming payment type.",
-    "compression" : "",
+    "compression" : "checks the incoming payment type.",
 	"related_labels" : ["Check type of incoming payment."]
   },{
     "sentence" : "Here the invoice is to be released already before.",
-    "compression" : "",
+    "compression" : "invoice is to be released",
 	"related_labels" : ["Release invoice."]
   }
 ]
