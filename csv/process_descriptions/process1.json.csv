@@ -119,12 +119,12 @@
 117,<EOS>,.,punct,25,5,1,1
 118,all,DT,det,0,2,0,0
 119,incoming,JJ,amod,1,2,0,0
-120,goods,NNS,nsubj:pass,2,4,0,0
-121,are,VBP,aux:pass,3,4,0,0
+120,goods,NNS,nsubj:pass,2,4,0,1
+121,are,VBP,aux:pass,3,4,0,1
 122,checked,VBN,root,4,-1,0,1
 123,by,IN,case,5,6,0,0
 124,warehousemen,NN,obl,6,4,0,0
-125,for,IN,case,7,9,0,0
+125,for,IN,case,7,9,0,1
 126,their,PRP$,nmod:poss,8,9,0,0
 127,storability,NN,nmod,9,6,0,1
 128,because,IN,mark,10,15,0,0

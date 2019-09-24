@@ -21,11 +21,11 @@
 	"related_labels" : ["Enter missing quantity in delivery note."]
   },{
     "sentence" : "The incoming goods department then informs the supplier, who in turn issues a new delivery order and delivers the goods at a later date.",
-    "compression" : "informs supplier issues delivery order.",
+    "compression" : "informs supplier, issues delivery order.",
 	"related_labels" : ["Inform supplier.","Issue delivery order."]
   },{
     "sentence" : "All incoming goods are checked by warehousemen for their storability because they could have been put together unfavourably.",
-    "compression" : "checked storability.",
+    "compression" : "goods are checked for storability.",
 	"related_labels" : ["Check storability."]
   },{
     "sentence" : "If the latter is the case, the goods must be repacked to make them fit for storage.",
