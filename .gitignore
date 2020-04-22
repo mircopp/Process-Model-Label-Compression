@@ -1,5 +1,11 @@
 .idea/*
 ressources/google/*
+ressources/process_descriptions/old/*
+ressources/process_descriptions/raw/*
+ressources/process_descriptions/translated/*
+ressources/process_descriptions/process1_sort_out.json
+ressources/process_descriptions/process2_sort_out.json
+ressources/process_descriptions/process3_sort_out.json
 ve/*
 matrizes/*
 */__pycache__/*
