@@ -1,5 +1,5 @@
 flask
-protobuf==3.3.0
+protobuf==3.18.3
 autograd==1.1.13
 mock
 asciitree
